@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Super Fantasy Brawl</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .header-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .character-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .character {
+        width: 200px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 5px;
+      }
+
+      .character-image {
+        width: 100%;
+        height: auto;
+        width: auto;
+        max-height: 300px;
+          }
+    </style>
+    <script>
+      window.addEventListener("resize", function () {
+        window.resizeTo(800, 600);
+      });
+    </script>
+  </head>
+  <body>
+    <img class="header-image" src="images/header.jpg" alt="Super Fantasy Brawl" />
+    <h1>Super Fantasy Brawl</h1>
+    <button onclick="selectCharacters()">Choose your fighters</button>
+    <div class="character-container"></div>
+
+    <script>
+      // Set up a function to randomly select and display characters
+      function selectCharacters() {
+        var characters = [
+          {
+            name: "SirTentaclot",
+            image: "images/characters/sirtentaclot.png"
+          },
+          {
+            name: "Tsuxiao",
+            image: "images/characters/tsuxiao.png"
+          },
+          {
+            name: "Kilgore",
+            image: "images/characters/kilgore.png"
+          },
+          {
+            name: "Nevamor",
+            image: "images/characters/nevamor.png"
+          },
+          {
+            name: "Taze",
+            image: "images/characters/taze.png"
+          },
+          {
+            name: "Loralei",
+            image: "images/characters/loralei.png"
+          },
+          {
+            name: "Gold'arr",
+            image: "images/characters/goldarr.png"
+          },
+          {
+            name: "Korvash",
+            image: "images/characters/korvash.png"
+          },
+          {
+            name: "Jacques le Beau",
+            image: "images/characters/jacqueslebeau.png"
+          },
+          {
+            name: "Alkemi",
+            image: "images/characters/alkemi.png"
+          },
+          {
+            name: "Kolel",
+            image: "images/characters/kolel.png"
+          },
+          {
+            name: "Deryn",
+            image: "images/characters/deryn.png"
+          },
+          {
+            name: "Xinshen",
+            image: "images/characters/xinshen.png"
+          },
+          {
+            name: "Dugrun",
+            image: "images/characters/dugrun.png"
+          },
+          {
+            name: "Nikkit",
+            image: "images/characters/nikkit.png"
+          },
+          {
+            name: "Kingalistair",
+            image: "images/characters/kingalistair.png"
+          },
+          {
+            name: "Khalize",
+            image: "images/characters/khalize.png"
+          },
+          {
+            name: "Gwaien",
+            image: "images/characters/gwaien.png"
+          },
+          {
+            name: "Lily",
+            image: "images/characters/lily.png"
+          },
+          {
+            name: "Rath",
+            image: "images/characters/rath.png"
+          },
+          {
+            name: "Sulka",
+            image: "images/characters/sulka.png"
+          },
+          {
+            name: "Akhet",
+            image: "images/characters/akhet.png"
+          },
+          {
+            name: "Mariusz",
+            image: "images/characters/mariusz.png"
+          },
+          {
+            name: "Isabella",
+            image: "images/characters/isabella.png"
+          }
+        ];
+
+        var selectedCharacters = [];
+
+        // Randomly select 3 characters
+        while (selectedCharacters.length < 3) {
+          var randomIndex = Math.floor(Math.random() * characters.length);
+          var character = characters[randomIndex];
+
+          // Check if the character has already been selected
+          if (!selectedCharacters.includes(character)) {
+            selectedCharacters.push(character);
+          }
+        }
+
+        // Display the randomly selected characters on the page
+        var characterContainer = document.querySelector(".character-container");
+        characterContainer.innerHTML = "";
+
+        selectedCharacters.forEach(function (character) {
+          var characterElement = document.createElement("div");
+          characterElement.classList.add("character");
+
+          var characterImage = document.createElement("img");
+          characterImage.classList.add("character-image");
+          characterImage.src = character.image;
+
+          characterElement.appendChild(characterImage);
+          characterContainer.appendChild(characterElement);
+        });
+      }
+    </script>
+  </body>
+</html>
